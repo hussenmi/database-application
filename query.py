@@ -138,6 +138,7 @@ def average_selling_price(month, year):
     print(f"Average selling price for {month}, {year} is ${round(average_price, 2)}.")
 
 if __name__ == '__main__':
+    # The queries run for January 2023
     get_top_five_offices('01', '2023')
     print('\n')
     get_top_five_agents('01', '2023')

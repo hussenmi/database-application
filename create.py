@@ -1,4 +1,4 @@
-from sqlalchemy import Table, create_engine, Column, Integer, String, Float, Numeric, Date, ForeignKey, Enum
+from sqlalchemy import Table, create_engine, Column, Integer, String, Float, Numeric, Date, ForeignKey, Enum, Index
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy_utils import EmailType
@@ -118,6 +118,10 @@ class Sale(Base):
     date_of_sale = Column(Date)
     sale_price = Column(Numeric)
 
+    # create an index on the date_of_sale column and the sale_price column
+    __table_args__ = (Index('date_of_sale_index', date_of_sale), Index('sale_price_index', sale_price))
+
+    
 
     @property
     def agent_commission(self):
@@ -139,6 +143,7 @@ class Sale(Base):
 
     def __repr__(self):
         return f"Sale('{self.id}', '{self.house_id}', '{self.buyer_id}', '{self.agent_id}', '{self.sale_price}', '{self.date_of_sale}')"
+    
     
 
 class MonthlyCommission(Base):

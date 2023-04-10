@@ -1,0 +1,8 @@
+Faker==18.4.0
+greenlet==2.0.2
+python-dateutil==2.8.2
+six==1.16.0
+SQLAlchemy==2.0.9
+SQLAlchemy-Utils==0.40.0
+typing_extensions==4.5.0
+validate-email==1.3
